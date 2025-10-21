@@ -1,0 +1,121 @@
+<div class="account-setup">
+  <!-- <app-header></app-header> -->
+
+  <div class="form-container">
+    <h2 class="title">ACCOUNT SET-UP</h2>
+    <p class="subtitle">
+      Welcome to Tyreoo Radar Calibration. Please fill out the below information so we have the
+      correct site details for you and ensure that we attend the correct address when you book a
+      calibration.
+    </p>
+
+    <form (ngSubmit)="onSubmitDetails()">
+      <div class="form-group">
+        <i class="fas fa-user"></i>
+        <input
+          id="firstName"
+          type="text"
+          placeholder="First Name"
+          [(ngModel)]="firstName"
+          name="firstName"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <i class="fas fa-user"></i>
+        <input
+          id="lastName"
+          type="text"
+          placeholder="Last Name"
+          [(ngModel)]="lastName"
+          name="lastName"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <i class="fas fa-envelope"></i>
+        <input
+          id="email"
+          type="email"
+          placeholder="Email"
+          [(ngModel)]="email"
+          name="email"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <i class="fas fa-city"></i>
+        <input
+          id="cityState"
+          type="text"
+          placeholder="City/State"
+          [(ngModel)]="cityState"
+          name="cityState"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <i class="fas fa-map-marker-alt"></i>
+        <input
+          id="address"
+          type="text"
+          placeholder="Address"
+          [(ngModel)]="address"
+          name="address"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <i class="fas fa-mail-bulk"></i>
+        <input
+          id="postalCode"
+          type="text"
+          placeholder="Postal Code"
+          [(ngModel)]="postalCode"
+          name="postalCode"
+          required
+        />
+      </div>
+      <div class="form-group select-group">
+        <i class="fas fa-globe"></i>
+        <select id="country" [(ngModel)]="country" name="country" required>
+          <option value="" disabled selected>Choose a Country</option>
+          <option>Pakistan</option>
+          <option>India</option>
+          <option>United Arab Emirates</option>
+          <option>United Kingdom</option>
+          <option>United States</option>
+          <option>Canada</option>
+          <option>Australia</option>
+          <option>Germany</option>
+          <option>France</option>
+          <option>China</option>
+          <option>Japan</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <i class="fas fa-image"></i>
+        <input
+          id="profilePicture"
+          type="file"
+          accept="image/*"
+          (change)="onProfilePicSelected($event)"
+          name="profilePicture"
+        />
+      </div>
+      <div *ngIf="profilePicPreview" class="profile-pic-preview">
+        <img
+          [src]="profilePicPreview"
+          alt="Profile Preview"
+          style="max-width: 120px; border-radius: 50%; margin-bottom: 10px"
+        />
+      </div>
+      <button type="submit" class="btn-submit">SUBMIT DETAILS</button>
+    </form>
+
+    <div *ngIf="error" class="error-message">{{ error }}</div>
+  </div>
+</div>
+
+<!-- <app-footer></app-footer> -->

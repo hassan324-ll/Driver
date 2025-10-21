@@ -1,0 +1,70 @@
+<app-header2></app-header2>
+<div class="reports-section">
+  <h3>
+    <a routerLink="/admin-dashboard" class="back-arrow"><i class="fa-solid fa-arrow-left"></i></a>
+    Reports & Analytics
+  </h3>
+
+  <!-- <p class="reports-desc">
+    Get insights into your bookings, job performance, and customer feedback. Use these analytics to
+    improve your service and track your business growth.
+  </p> -->
+  <div class="reports-cards">
+    <div class="report-card">
+      <h4>Total Bookings</h4>
+      <div class="report-value">{{ totalBookings }}</div>
+      <div class="report-sub">All time</div>
+    </div>
+    <div class="report-card">
+      <h4>Completed Jobs</h4>
+      <div class="report-value">{{ completedJobs }}</div>
+      <div class="report-sub">All time</div>
+    </div>
+    <div class="report-card">
+      <h4>Cancelled Jobs</h4>
+      <div class="report-value">{{ cancelledJobs }}</div>
+      <div class="report-sub">All time</div>
+    </div>
+    <div class="report-card">
+      <h4>Average Rating</h4>
+      <div class="report-value">{{ averageRating }}</div>
+      <div class="report-sub">Customer feedback</div>
+    </div>
+  </div>
+  <div class="reports-chart">
+    <div class="charts-row">
+      <div class="bar-chart-col">
+        <h4>Monthly Bookings Trend</h4>
+        <canvas
+          baseChart
+          [data]="bookingsChartData"
+          [options]="bookingsChartOptions"
+          [type]="bookingsChartType"
+          class="chart-img"
+        ></canvas>
+      </div>
+      <div class="pie-chart-col">
+        <!-- <h4>Completed vs Cancelled</h4> -->
+        <canvas
+          baseChart
+          [data]="bookingsPieData"
+          [options]="bookingsPieOptions"
+          [type]="'pie'"
+          class="chart-img pie-img"
+        ></canvas>
+      </div>
+    </div>
+    <div class="analytics-summary">
+      <h4>Bookings Analytics</h4>
+      <ul>
+        <li><strong>Total Bookings:</strong> {{ totalBookings }}</li>
+        <li><strong>Completed Bookings:</strong> {{ completedJobs }}</li>
+        <li><strong>Cancelled Bookings:</strong> {{ cancelledJobs }}</li>
+        <li><strong>Completion Rate:</strong> {{ completionRate | number : '1.0-2' }}%</li>
+        <li><strong>Cancellation Rate:</strong> {{ cancellationRate | number : '1.0-2' }}%</li>
+        <li><strong>Average Rating:</strong> {{ averageRating }}</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

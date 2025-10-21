@@ -1,0 +1,81 @@
+<div class="signup-container">
+  <div class="header">
+    <img src="/logo.png" alt="Tyreoo Logo" class="logo" />
+  </div>
+
+  <form (ngSubmit)="onRegister()" class="signup-form">
+    <div class="input-group">
+      <i class="fas fa-user"></i>
+      <input
+        type="text"
+        id="customerName"
+        name="customerName"
+        [(ngModel)]="customerName"
+        placeholder="Customer Name"
+        required
+      />
+    </div>
+
+    <div class="input-group">
+      <i class="fas fa-envelope"></i>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        [(ngModel)]="email"
+        placeholder="Email"
+        required
+      />
+    </div>
+
+    <div class="input-group">
+      <i class="fas fa-phone"></i>
+      <input
+        type="tel"
+        id="phoneNumber"
+        name="phoneNumber"
+        [(ngModel)]="phoneNumber"
+        placeholder="Phone Number"
+        required
+      />
+    </div>
+
+    <div class="input-group">
+      <i class="fas fa-lock"></i>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        [(ngModel)]="password"
+        placeholder="Password (8–12 characters)"
+        required
+      />
+    </div>
+
+    <div class="input-group">
+      <i class="fas fa-key"></i>
+      <input
+        type="password"
+        id="reEnterPassword"
+        name="reEnterPassword"
+        [(ngModel)]="reEnterPassword"
+        placeholder="Re-enter Password"
+        required
+      />
+    </div>
+
+    <button type="submit" class="signup-button">Sign Up</button>
+
+    <p class="login-link">
+      <a routerLink="/login">Already have an account? Log In</a>
+    </p>
+
+    @if (error) {
+    <div class="error-text">{{ error }}</div>
+    } @if (success) {
+    <div class="success-text">{{ success }}</div>
+    }
+  </form>
+</div>
+
+<!-- <app-footer></app-footer> -->

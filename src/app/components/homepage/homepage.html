@@ -1,0 +1,43 @@
+<app-header></app-header>
+<div class="homepage">
+  <div class="welcome">
+    <h2>WELCOME BACK<br />{{ userName }}</h2>
+    <p>
+      Welcome to Drive Align Radar Calibration. Please fill out the below information so we have the
+      correct site details for you and ensure that we attend the correct address when you book a
+      calibration.
+    </p>
+  </div>
+
+  <div class="grid">
+    <a routerLink="/book-job" class="card">
+      <span class="icon"><i class="fa-solid fa-calendar-plus"></i></span>
+      <span class="text">BOOK A JOB</span>
+    </a>
+    <!-- <a routerLink="/reports" class="card">
+      <span class="icon"><i class="fa-solid fa-satellite-dish"></i></span>
+      <span class="text">LIVE</span>
+    </a> -->
+    <a routerLink="/status" class="card">
+      <span class="icon"><i class="fa-solid fa-list-check"></i></span>
+      <span class="text">JOBS STATUS</span>
+    </a>
+    <a routerLink="/compliance-docs" class="card">
+      <span class="icon"><i class="fa-solid fa-file-contract"></i></span>
+      <span class="text">COMPLIANCE</span>
+    </a>
+    <a routerLink="/review" class="card">
+      <span class="icon"><i class="fa-solid fa-comment-dots"></i></span>
+      <span class="text">FEEDBACK</span>
+    </a>
+    <a href="https://tyreoo.com" target="_blank" class="card">
+      <span class="icon"><i class="fa-solid fa-globe"></i></span>
+      <span class="text">WEBSITE</span>
+    </a>
+    <a href="https://tyreoo.com" target="_blank" class="card">
+      <span class="icon"><i class="fa-solid fa-globe"></i></span>
+      <span class="text">WEBSITE</span>
+    </a>
+  </div>
+</div>
+<app-footer></app-footer>

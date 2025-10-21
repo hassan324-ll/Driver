@@ -1,0 +1,56 @@
+<app-header></app-header>
+<!-- Profile Section -->
+<div class="profile-section">
+  <div class="profile-card">
+    <div class="profile-main">
+      <img [src]="profilePicUrl" alt="Profile" class="profile-avatar" />
+      <div class="profile-details">
+        <div class="profile-name">{{ firstName }} {{ lastName }}</div>
+        <div class="profile-role">{{ email }}</div>
+      </div>
+      <div class="profile-actions">
+        <!-- <button class="profile-edit"><i class="fa fa-edit"></i> Edit</button> -->
+      </div>
+    </div>
+
+    <!-- Personal Information Section -->
+    <div class="profile-info-header">
+      <span>Personal Information</span>
+    </div>
+    <div class="profile-info-grid">
+      @if (firstName || lastName) {
+      <div class="profile-info-row">
+        <div class="profile-info-label">First Name</div>
+        <div class="profile-info-value">{{ firstName }}</div>
+        <div class="profile-info-label">Last Name</div>
+        <div class="profile-info-value">{{ lastName }}</div>
+      </div>
+      } @if (email) {
+      <div class="profile-info-row">
+        <div class="profile-info-label">Email address</div>
+        <div class="profile-info-value">{{ email }}</div>
+      </div>
+      }
+    </div>
+    <div class="profile-info-header">
+      <span>Address</span>
+    </div>
+    <div class="profile-info-grid">
+      @if (country || cityState) {
+      <div class="profile-info-row">
+        <div class="profile-info-label">Country</div>
+        <div class="profile-info-value">{{ country }}</div>
+        <div class="profile-info-label">City/State</div>
+        <div class="profile-info-value">{{ cityState }}</div>
+      </div>
+      } @if (address || postalCode) {
+      <div class="profile-info-row">
+        <div class="profile-info-label">Address</div>
+        <div class="profile-info-value">{{ address }}</div>
+        <div class="profile-info-label">Postal Code</div>
+        <div class="profile-info-value">{{ postalCode }}</div>
+      </div>
+      }
+    </div>
+  </div>
+</div>

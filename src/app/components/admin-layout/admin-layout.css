@@ -1,0 +1,41 @@
+/* Admin layout for fixed header, sidebar, and router outlet */
+.admin-layout-container {
+  display: flex;
+  min-height: 100vh;
+  background: #f7f9fb;
+}
+.admin-sidebar-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 220px;
+  height: 100vh;
+  z-index: 1100;
+}
+.admin-header-fixed {
+  position: fixed;
+  top: 0;
+  left: 220px;
+  right: 0;
+  height: 60px;
+  z-index: 1200;
+}
+.admin-main-content {
+  margin-left: 220px;
+  margin-top: 60px;
+  padding: 32px 24px;
+  flex: 1;
+  min-height: calc(100vh - 60px);
+  background: #fff;
+}
+@media (max-width: 900px) {
+  .admin-sidebar-fixed {
+    display: none;
+  }
+  .admin-header-fixed {
+    left: 0;
+  }
+  .admin-main-content {
+    margin-left: 0;
+  }
+}

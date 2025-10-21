@@ -1,0 +1,269 @@
+/* Compliance Section (styled like first profile design) */
+.compliance-section {
+  margin: 2rem auto;
+  max-width: 900px;
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  padding: 1.2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+}
+
+/* Title */
+.compliance-section h3 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #0e8cc3;
+  /* color: #; */
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+/* Description */
+.compliance-desc {
+  text-align: center;
+  color: #6b7280;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Table */
+.compliance-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+}
+
+/* Table Head & Cells */
+.compliance-table th,
+.compliance-table td {
+  padding: 0.9rem 0.75rem;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+.compliance-table th {
+  background: #f9fafb;
+  color: #111827;
+  font-weight: 600;
+}
+
+.compliance-table td {
+  color: #374151;
+}
+
+.compliance-table tr:last-child td {
+  border-bottom: none;
+}
+
+.compliance-table tr:hover {
+  background: #f3f4f6;
+}
+
+/* Status badges */
+.status {
+  padding: 0.3em 0.8em;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.4px;
+}
+
+.status.valid {
+  background: #e7f5ec;
+  color: #059669;
+}
+.status.expired {
+  background: #fef2f2;
+  color: #dc2626;
+}
+.status.pending {
+  background: #fefce8;
+  color: #ca8a04;
+}
+
+/* Download link */
+.download-link {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.download-link:hover {
+  color: #1d4ed8;
+}
+
+/* Support Section */
+.compliance-support {
+  margin-top: 1.2rem;
+  text-align: center;
+}
+
+.compliance-support h4 {
+  color: #111827;
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+}
+
+.compliance-support a {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.compliance-support a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 700px) {
+  .compliance-section {
+    padding: 1rem;
+    max-width: 95vw;
+  }
+  .compliance-section h3 {
+    font-size: 1.3rem;
+    margin-top: 40px;
+  }
+  .compliance-desc {
+    font-size: 0.95rem;
+    margin-bottom: 1.2rem;
+  }
+  .compliance-table th,
+  .compliance-table td {
+    padding: 0.7rem 0.5rem;
+    font-size: 0.9rem;
+  }
+  .compliance-support h4 {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .compliance-section {
+    padding: 0.7rem 1vw;
+    max-width: 100vw;
+    margin-top: 70px;
+  }
+  .compliance-section h3 {
+    font-size: 1rem;
+    margin-bottom: 0.7rem;
+  }
+  .compliance-table {
+    display: block;
+    width: 100vw;
+    overflow-x: auto;
+    border-radius: 0;
+    margin-left: -1vw;
+    margin-right: -1vw;
+    font-size: 0.9rem;
+  }
+  .compliance-table th,
+  .compliance-table td {
+    font-size: 0.85rem;
+    padding: 0.35rem 0.4rem;
+    white-space: nowrap;
+  }
+  .compliance-support h4 {
+    font-size: 0.85rem;
+  }
+  .compliance-support p,
+  .compliance-support a {
+    font-size: 0.85rem;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1439px) {
+  .compliance-section {
+    max-width: 1100px;
+    padding: 2.5rem 3vw;
+  }
+  .compliance-table th,
+  .compliance-table td {
+    font-size: 1rem;
+    padding: 1.1rem 1.2rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .compliance-section {
+    max-width: 1300px;
+    padding: 3rem 5vw;
+    margin-top: 120px;
+  }
+  .compliance-section h3 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  .compliance-table th,
+  .compliance-table td {
+    font-size: 1.1rem;
+    padding: 1.2rem 1.5rem;
+  }
+  .compliance-support h4 {
+    font-size: 1.1rem;
+  }
+  .compliance-support p,
+  .compliance-support a {
+    font-size: 1.05rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .compliance-section {
+    padding: 0.8rem 2vw;
+    max-width: 100vw;
+  }
+  .compliance-section h3 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+  .compliance-table {
+    display: block;
+    width: 100vw;
+    overflow-x: auto;
+    border-radius: 0;
+    margin-left: -2vw;
+    margin-right: -2vw;
+  }
+  .compliance-table th,
+  .compliance-table td {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.5rem;
+    white-space: nowrap;
+  }
+  .compliance-support h4 {
+    font-size: 0.9rem;
+  }
+}
+
+@media (min-width: 701px) and (max-width: 1024px) {
+  .compliance-section {
+    max-width: 95vw;
+    padding: 1.5rem 2vw;
+  }
+  .compliance-table {
+    display: block;
+    width: 100vw;
+    overflow-x: auto;
+    border-radius: 0;
+    margin-left: -2vw;
+    margin-right: -2vw;
+  }
+  .compliance-table th,
+  .compliance-table td {
+    font-size: 0.95rem;
+    padding: 0.6rem 0.7rem;
+  }
+}

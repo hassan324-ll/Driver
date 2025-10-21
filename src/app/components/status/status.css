@@ -1,0 +1,154 @@
+/* STATUS SECTION (Styled like first design) */
+
+.status-section {
+  margin: 2rem auto;
+  max-width: 1200px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.06);
+  padding: 0 2rem 2rem 2rem;
+  margin-top: 100px;
+  margin-bottom: 80px; /* Prevent content from being hidden behind footer */
+  border: 1px solid #e6e6e6;
+}
+
+.status-section h3 {
+  text-align: left;
+  margin-bottom: 1.5rem;
+  color: #0e8cc3;
+  /* color: #; */
+  font-size: 1.6rem;
+  font-weight: 600;
+  border-bottom: 2px solid #0e8cc3;
+  display: inline-block;
+  padding-bottom: 6px;
+}
+
+/* TABLE */
+
+.job-status-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.job-status-table th,
+.job-status-table td {
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: left;
+  font-size: 0.97rem;
+}
+
+.job-status-table th {
+  background: #f0f0f0;
+  color: #222;
+  font-weight: 600;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.job-status-table td {
+  color: #555;
+}
+
+/* Row hover like first table */
+.job-status-table tr:hover {
+  background: #f9f9f9;
+  transition: background 0.2s ease;
+}
+
+/* STATUS LABELS */
+
+.status-pending {
+  color: #e74c3c;
+  font-weight: 600;
+  background: #fdeaea;
+  padding: 0.35em 1.2em;
+  border-radius: 6px;
+}
+
+.status-completed {
+  color: #27ae60;
+  font-weight: 600;
+  background: #eaf9ee;
+  padding: 0.35em 0.8em;
+  border-radius: 6px;
+}
+
+.status-cancelled {
+  color: #888;
+  font-weight: 600;
+  background: #f6f6f6;
+  padding: 0.35em 0.8em;
+  border-radius: 6px;
+  /* margin-top: 10px; */
+}
+
+/* BUTTON */
+.status-cancel-btn {
+  background: red;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 0.3em 0.8em;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(14, 140, 195, 0.15);
+  transition: all 0.2s ease-in-out;
+  margin-top: 10px;
+}
+
+.status-cancel-btn:hover {
+  background: rgb(209, 74, 74);
+  box-shadow: 0 2px 5px rgba(14, 140, 195, 0.25);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .status-section {
+    padding: 1rem;
+  }
+
+  .job-status-table th,
+  .job-status-table td {
+    padding: 0.7rem;
+    font-size: 0.9rem;
+  }
+
+  .status-section h3 {
+    font-size: 1.3rem;
+  }
+
+  .status-cancel-btn {
+    font-size: 0.85rem;
+    padding: 0.25em 0.6em;
+  }
+}
+
+@media (max-width: 480px) {
+  .job-status-table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 0;
+  }
+
+  .job-status-table th,
+  .job-status-table td {
+    white-space: nowrap;
+    font-size: 0.88rem;
+    padding: 0.6rem 0.7rem;
+  }
+}
+
+/* Fix footer to bottom for status page */
+app-footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100vw;
+  z-index: 100;
+}

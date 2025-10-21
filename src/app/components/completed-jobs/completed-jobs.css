@@ -1,0 +1,110 @@
+/* Completed Jobs Section */
+.completed-jobs-section {
+  background-color: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  /* margin-top: 25px; */
+}
+
+/* Header */
+.completed-jobs-section h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #15803d; /* Green tone */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+/* Table styling */
+.completed-jobs-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background-color: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+.completed-jobs-table thead {
+  background-color: #ecfdf5; /* Light green header background */
+}
+
+.completed-jobs-table th {
+  text-align: left;
+  padding: 14px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #065f46; /* Dark green text */
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.completed-jobs-table td {
+  padding: 12px 16px;
+  font-size: 14px;
+  color: #111827;
+  border-bottom: 1px solid #f3f4f6;
+  vertical-align: middle;
+}
+
+/* Alternating row colors */
+.completed-jobs-table tbody tr:nth-child(even) {
+  background-color: #f9fafb;
+}
+
+/* Hover effect */
+.completed-jobs-table tbody tr:hover {
+  background-color: #ecfdf5;
+  transition: background-color 0.25s ease;
+}
+
+/* Empty state */
+.completed-jobs-section > div {
+  color: #6b7280;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Responsive layout */
+@media (max-width: 900px) {
+  .completed-jobs-table thead {
+    display: none;
+  }
+
+  .completed-jobs-table,
+  .completed-jobs-table tbody,
+  .completed-jobs-table tr,
+  .completed-jobs-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .completed-jobs-table tr {
+    margin-bottom: 15px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  }
+
+  .completed-jobs-table td {
+    padding: 10px 15px;
+    text-align: right;
+    position: relative;
+  }
+
+  .completed-jobs-table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 15px;
+    font-weight: 600;
+    color: #065f46;
+    text-transform: capitalize;
+  }
+}

@@ -1,1 +1,72 @@
-/* You can add global styles to this file, and also import other style files */
+html,
+body {
+  /* overflow-y: hidden; */
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'intel', sans-serif;
+}
+
+/* Global Typography */
+body,
+html {
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  /* color: #111827;
+  background: #fff; */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  color: #0e8cc3;
+  font-weight: 700;
+  /* margin-top: 0; */
+  /* margin-bottom: 0.5em; */
+}
+
+p,
+label,
+input,
+button,
+a,
+span,
+div {
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  /* color: #111827; */
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+label {
+  font-weight: 600;
+  color: #0e8cc3;
+}
+
+button,
+.btn {
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* Utility for consistent paragraph spacing */
+p {
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+
+/* Links */
+a {
+  color: #0e8cc3;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+a:hover {
+  text-decoration: underline;
+  color: #0a6b99;
+}

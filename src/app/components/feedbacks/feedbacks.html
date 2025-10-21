@@ -1,0 +1,30 @@
+<div class="feedbacks-section">
+  <h3>
+    <!-- <a routerLink="/admin-dashboard" class="back-arrow"><i class="fa-solid fa-arrow-left"></i></a> -->
+    Customer Reviews
+  </h3>
+  @if (reviews.length > 0) {
+  <table class="feedbacks-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Rating</th>
+        <th>Comments</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (review of reviews; track $index) {
+      <tr>
+        <td>{{ review.reviewerName }}</td>
+        <td>{{ review.rating }}</td>
+        <td>{{ review.comments }}</td>
+        <td>{{ review.createdAt | date : 'short' }}</td>
+      </tr>
+      }
+    </tbody>
+  </table>
+  } @if (reviews.length === 0) {
+  <div>No reviews yet.</div>
+  }
+</div>

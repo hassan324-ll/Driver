@@ -1,0 +1,40 @@
+<div class="completed-jobs-section">
+  <h3>
+    <!-- <a routerLink="/admin-dashboard" class="back-arrow"><i class="fa-solid fa-arrow-left"></i></a> -->
+    Completed Jobs
+  </h3>
+  @if (jobs.length > 0) {
+  <table class="completed-jobs-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Car Name</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Areas Affected</th>
+        <th>Work Required</th>
+        <th>Tracking Adjusted</th>
+        <th>New Components</th>
+        <th>Note</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (job of jobs; track $index) {
+      <tr>
+        <td>{{ job.customerName }}</td>
+        <td>{{ job.carName }}</td>
+        <td>{{ job.bookingDate }}</td>
+        <td>{{ job.bookingTime }}</td>
+        <td>{{ job.areasAffected }}</td>
+        <td>{{ job.workRequired }}</td>
+        <td>{{ job.trackingAdjusted }}</td>
+        <td>{{ job.newComponents }}</td>
+        <td>{{ job.note }}</td>
+      </tr>
+      }
+    </tbody>
+  </table>
+  } @if (jobs.length === 0) {
+  <div>No completed jobs.</div>
+  }
+</div>

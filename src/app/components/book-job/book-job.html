@@ -1,0 +1,147 @@
+<app-header></app-header>
+<div class="book-job-container">
+  <h2 class="title">BOOK A JOB</h2>
+
+  <form class="job-form" (ngSubmit)="onSubmitJob()">
+    <!-- Customer Name -->
+    <div class="form-group">
+      <i class="fas fa-user"></i>
+      <input
+        id="customerName"
+        type="text"
+        placeholder="Customer Name"
+        required
+        [(ngModel)]="customerName"
+        name="customerName"
+      />
+      @if (errors.customerName) {
+      <div class="error-message">{{ errors.customerName }}</div>
+      }
+    </div>
+
+    <!-- Car Name -->
+    <div class="form-group">
+      <i class="fas fa-car"></i>
+      <input
+        id="carName"
+        type="text"
+        placeholder="Car Name"
+        required
+        [(ngModel)]="carName"
+        name="carName"
+      />
+      @if (errors.carName) {
+      <div class="error-message">{{ errors.carName }}</div>
+      }
+    </div>
+
+    <!-- Booking Date -->
+    <div class="form-group">
+      <i class="fas fa-calendar-alt"></i>
+      <input id="bookingDate" type="date" required [(ngModel)]="bookingDate" name="bookingDate" />
+      @if (errors.bookingDate) {
+      <div class="error-message">{{ errors.bookingDate }}</div>
+      }
+    </div>
+
+    <!-- Booking Time -->
+    <div class="form-group">
+      <i class="fas fa-clock"></i>
+      <input id="bookingTime" type="time" required [(ngModel)]="bookingTime" name="bookingTime" />
+      @if (errors.bookingTime) {
+      <div class="error-message">{{ errors.bookingTime }}</div>
+      }
+    </div>
+
+    <!-- Areas Affected -->
+    <div class="form-group select-group">
+      <i class="fas fa-wrench"></i>
+      <select required [(ngModel)]="areasAffected" name="areasAffected">
+        <option value="">Select Areas Affected</option>
+        <option value="Front">Front</option>
+        <option value="Rear">Rear</option>
+        <option value="Left Side">Left Side</option>
+        <option value="Right Side">Right Side</option>
+        <option value="Top">Top</option>
+        <option value="Bottom">Bottom</option>
+      </select>
+      @if (errors.areasAffected) {
+      <div class="error-message">{{ errors.areasAffected }}</div>
+      }
+    </div>
+
+    <!-- Car diagram -->
+    <div class="car-diagram">
+      <img src="./car.jpeg" alt="Car Diagram" />
+    </div>
+
+    <!-- Work Required -->
+    <div class="form-group">
+      <i class="fas fa-tools"></i>
+      <input
+        type="text"
+        placeholder="Work Required"
+        required
+        [(ngModel)]="workRequired"
+        name="workRequired"
+      />
+      @if (errors.workRequired) {
+      <div class="error-message">{{ errors.workRequired }}</div>
+      }
+    </div>
+
+    <!-- Tracking Adjusted -->
+    <div class="form-group select-group">
+      <i class="fas fa-route"></i>
+      <select required [(ngModel)]="trackingAdjusted" name="trackingAdjusted">
+        <option value="">Has the tracking been adjusted?</option>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+      @if (errors.trackingAdjusted) {
+      <div class="error-message">{{ errors.trackingAdjusted }}</div>
+      }
+    </div>
+
+    <!-- New Components -->
+    <div class="form-group select-group">
+      <i class="fas fa-cogs"></i>
+      <select required [(ngModel)]="newComponents" name="newComponents">
+        <option value="">Any new components?</option>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+      @if (errors.newComponents) {
+      <div class="error-message">{{ errors.newComponents }}</div>
+      }
+    </div>
+
+    <!-- Note -->
+    <div class="form-group textarea-group">
+      <i class="fas fa-sticky-note"></i>
+      <textarea placeholder="Additional Notes" [(ngModel)]="note" name="note"></textarea>
+    </div>
+
+    <!-- Upload -->
+    <div class="form-group file-upload">
+      <i class="fas fa-upload"></i>
+      <input id="carImage" type="file" accept="image/*" (change)="onFileChange($event)" />
+    </div>
+
+    <button type="submit" class="submit-btn">SUBMIT BOOKING</button>
+  </form>
+
+  @if (successMessage) {
+  <div class="success-message">{{ successMessage }}</div>
+  }
+</div>
+
+<!-- Footer -->
+<!-- <div class="footer">
+  <p>© 2025 DRIVE ALIGN RADAR CALIBRATION. ALL RIGHTS RESERVED</p>
+  <div class="social-icons">
+    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+    <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+    <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+  </div>
+</div> -->

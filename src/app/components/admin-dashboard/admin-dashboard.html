@@ -1,0 +1,103 @@
+<div class="dashboard-main">
+  <!-- <app-header2></app-header2> -->
+  <div class="welcome">
+    <!-- <h2>ADMIN DASHBOARD</h2> -->
+  </div>
+  <div class="grid main-cards">
+    <div class="dashboard-card blue">
+      <div class="dashboard-card-title">Active Bookings</div>
+      <div class="dashboard-card-main">
+        <div>
+          <div class="dashboard-card-count">{{ activeJobsCount }}</div>
+          <div class="dashboard-card-label">Active</div>
+        </div>
+        <div class="dashboard-card-graph">
+          <i class="fa fa-briefcase dashboard-card-icon"></i>
+        </div>
+      </div>
+    </div>
+    <div class="dashboard-card red">
+      <div class="dashboard-card-title">Canceled</div>
+      <div class="dashboard-card-main">
+        <div>
+          <div class="dashboard-card-count">{{ cancelledJobsCount }}</div>
+          <div class="dashboard-card-label">Canceled</div>
+        </div>
+        <div class="dashboard-card-graph">
+          <i class="fa fa-ban dashboard-card-icon"></i>
+        </div>
+      </div>
+    </div>
+    <div class="dashboard-card green">
+      <div class="dashboard-card-title">Completed</div>
+      <div class="dashboard-card-main">
+        <div>
+          <div class="dashboard-card-count">{{ completedJobsCount }}</div>
+          <div class="dashboard-card-label">Completed</div>
+        </div>
+        <div class="dashboard-card-graph">
+          <i class="fa fa-check-circle dashboard-card-icon"></i>
+        </div>
+      </div>
+    </div>
+    <div class="dashboard-card purple">
+      <div class="dashboard-card-title">Feedbacks</div>
+      <div class="dashboard-card-main">
+        <div>
+          <div class="dashboard-card-count">{{ reviewsCount }}</div>
+          <div class="dashboard-card-label">Feedbacks</div>
+        </div>
+        <div class="dashboard-card-graph">
+          <i class="fa fa-comments dashboard-card-icon"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Recent Jobs Table -->
+  <div class="recent-jobs-table-section">
+    <h2 class="recent-jobs-heading">Recent Jobs</h2>
+    <table class="recent-jobs-table">
+      <thead>
+        <tr>
+          <th>Customer Name</th>
+          <th>Car Name</th>
+          <th>Date</th>
+          <th>Status</th>
+          <th>Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (job of recentJobs | slice : 0 : 5; track $index) {
+        <tr>
+          <td>{{ job.customerName }}</td>
+          <td>{{ job.carName }}</td>
+          <td>{{ job.bookingDate }}</td>
+          <td>
+            <span
+              [ngClass]="{
+                'status-active': job.status === 'pending',
+                'status-cancelled': job.status === 'cancelled',
+                'status-completed': job.status === 'completed',
+              
+              }"
+            >
+              {{
+                job.status === 'pending'
+                  ? 'Active'
+                  : job.status === 'cancelled'
+                  ? 'Cancelled'
+                  : job.status === 'completed'
+                  ? 'Completed'
+                  : job.type === 'review'
+                  ? 'Review'
+                  : job.status
+              }}
+            </span>
+          </td>
+          <td>{{ job.type === 'review' ? 'Review' : 'Job' }}</td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

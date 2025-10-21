@@ -1,0 +1,48 @@
+<header class="header">
+  <div class="logo">
+    <!-- <i class="fa fa-car" style="font-size: 2rem; color: #fff; margin-right: 8px"></i> -->
+    <!-- <i>DRIVE ALIGN</i> -->
+    <img src="./drivealign.png" alt="" />
+  </div>
+  <div class="header-profile">
+    <!-- <span class="notification-wrapper" (click)="toggleNotifications()">
+      <i class="fa fa-bell notification-bell"></i>
+      <span *ngIf="notificationCount > 0" class="notification-count">{{ notificationCount }}</span>
+    </span> -->
+    <div class="profile-info" (click)="showProfileDropdown = !showProfileDropdown">
+      <img src="./hassan.jpeg" alt="Profile" class="profile-pic" />
+      <!-- <span class="profile-name">M-Hassan</span> -->
+      <i [ngStyle]="{ color: 'white' }" class="fa fa-chevron-down profile-dropdown-icon"></i>
+    </div>
+    <div class="profile-dropdown" *ngIf="showProfileDropdown">
+      <div class="profile-dropdown-header"></div>
+      <div class="profile-dropdown-list">
+        <a
+          class="profile-dropdown-item"
+          routerLink="admin-profile"
+          (click)="closeProfileDropdown()"
+        >
+          <i class="fa fa-user profile-dropdown-icon"></i>
+          Edit profile
+        </a>
+        <!-- <a
+          class="profile-dropdown-item"
+          routerLink="/account-settings"
+          (click)="closeProfileDropdown()"
+        >
+          <i class="fa fa-cog profile-dropdown-icon"></i>
+          Account settings
+        </a> -->
+        <!-- <a class="profile-dropdown-item" routerLink="/support" (click)="closeProfileDropdown()">
+          <i class="fa fa-life-ring profile-dropdown-icon"></i>
+          Support
+        </a> -->
+      </div>
+      <div class="profile-dropdown-divider"></div>
+      <button class="profile-dropdown-signout" (click)="signOut()">
+        <i class="fa fa-sign-out profile-dropdown-icon"></i>
+        Sign out
+      </button>
+    </div>
+  </div>
+</header>

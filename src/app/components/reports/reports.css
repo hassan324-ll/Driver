@@ -1,0 +1,229 @@
+/* Analytics summary styles */
+.analytics-summary {
+  margin: 2rem auto 1rem auto;
+  background: #f8fafd;
+  border-radius: 10px;
+  box-shadow: 0 1px 6px rgba(33, 125, 187, 0.06);
+  max-width: 600px;
+  padding: 1.5rem 2rem;
+  font-size: 1.08rem;
+}
+.analytics-summary h4 {
+  color: #217dbb;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+.analytics-summary ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.analytics-summary li {
+  margin-bottom: 0.7rem;
+  color: #333;
+}
+.analytics-summary strong {
+  color: #0e8cc3;
+}
+.reports-section {
+  margin: 2rem auto;
+  max-width: 900px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.reports-section h3 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #217dbb;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* Chart row layout */
+.charts-row {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+}
+.bar-chart-col {
+  flex: 2;
+  min-width: 0;
+}
+.pie-chart-col {
+  flex: 1;
+  min-width: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 90px;
+}
+.chart-img {
+  width: 100%;
+  max-width: 800px;
+  border-radius: 8px;
+  box-shadow: 0 1px 6px rgba(33, 125, 187, 0.06);
+  margin-bottom: 0.7rem;
+}
+.pie-img {
+  max-width: 300px;
+}
+/* Card styles */
+.report-card {
+  background: #f5faff;
+  border-radius: 10px;
+  box-shadow: 0 1px 6px rgba(33, 125, 187, 0.06);
+  padding: 1.2rem 2rem;
+  min-width: 160px;
+  text-align: center;
+  flex: 1 1 160px;
+  margin-bottom: 0.5rem;
+}
+.report-card h4 {
+  color: #217dbb;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+.report-value {
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: #0e8cc3;
+  margin-bottom: 0.2rem;
+}
+.report-sub {
+  font-size: 0.95rem;
+  color: #888;
+}
+.reports-cards {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+.reports-chart {
+  width: 100%;
+  margin-top: 2rem;
+  text-align: center;
+}
+.chart-img {
+  width: 100%;
+  max-width: 800px;
+  border-radius: 8px;
+  box-shadow: 0 1px 6px rgba(33, 125, 187, 0.06);
+  margin-bottom: 0.7rem;
+}
+.pie-img {
+  max-width: 300px;
+}
+.chart-desc {
+  font-size: 0.95rem;
+  color: #888;
+}
+.back-arrow {
+  display: inline-flex;
+  align-items: center;
+  color: #217dbb;
+  font-size: 1.2rem;
+  margin-right: 0.5em;
+  text-decoration: none;
+  transition: color 0.2s, transform 0.1s;
+}
+.back-arrow i {
+  font-size: 1.3rem;
+}
+.back-arrow:hover {
+  color: #0e8cc3;
+  transform: translateX(-2px);
+}
+.back-arrow {
+  position: relative;
+  display: inline-block;
+}
+
+@media (max-width: 700px) {
+  .reports-section {
+    padding: 1rem;
+    max-width: 99vw;
+  }
+  .reports-section h3 {
+    font-size: 1.3rem;
+  }
+  .reports-cards {
+    gap: 0.7rem;
+  }
+  .report-card {
+    padding: 0.7rem 1rem;
+    min-width: 120px;
+    font-size: 0.95rem;
+  }
+  .report-value {
+    font-size: 1.3rem;
+  }
+  .charts-row {
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  .bar-chart-col,
+  .pie-chart-col {
+    width: 100%;
+    min-width: unset;
+    max-width: 100vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .reports-section {
+    padding: 0.5rem 2vw;
+    max-width: 100vw;
+  }
+  .reports-section h3 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    margin-top: 50px;
+  }
+  .reports-desc {
+    font-size: 0.95rem;
+    margin-bottom: 1.2rem;
+  }
+  .reports-cards {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .report-card {
+    min-width: unset;
+    width: 100%;
+    font-size: 0.9rem;
+    padding: 0.6rem 0.5rem;
+  }
+  .report-value {
+    font-size: 1.1rem;
+  }
+  .chart-img {
+    max-width: 98vw;
+    border-radius: 5px;
+  }
+}
+
+@media (min-width: 701px) and (max-width: 1024px) {
+  .reports-section {
+    max-width: 95vw;
+    padding: 1.5rem 2vw;
+  }
+  .reports-cards {
+    gap: 1rem;
+  }
+  .chart-img {
+    max-width: 90vw;
+  }
+}

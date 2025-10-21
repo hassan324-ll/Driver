@@ -1,0 +1,52 @@
+<div class="login-container">
+  <!-- Logo -->
+  <div class="logo">
+    <img src="/logo.png" alt="Tyreoo Logo" />
+  </div>
+
+  <!-- Login Form -->
+  <form (ngSubmit)="onSubmit()" class="login-form">
+    <div class="input-group">
+      <i class="fas fa-envelope"></i>
+      <input
+        [(ngModel)]="email"
+        name="email"
+        type="email"
+        placeholder="Enter your email"
+        required
+      />
+    </div>
+
+    <div class="input-group">
+      <i class="fas fa-lock"></i>
+      <input
+        [(ngModel)]="password"
+        name="password"
+        type="password"
+        placeholder="Enter your password"
+        required
+      />
+    </div>
+
+    <button type="submit">Log In</button>
+
+    <p class="create">
+      <a routerLink="/signup">Create a New Account</a>
+    </p>
+
+    @if (error) {
+    <div class="error-text">{{ error }}</div>
+    }
+  </form>
+
+  <!-- Footer -->
+  <!-- <div class="footer">
+    <p>© 2025 DRIVE ALIGN RADAR CALIBRATION. ALL RIGHTS RESERVED</p>
+    <div class="social-icons">
+      <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+      <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+    </div>
+  </div>
+</div> -->
+</div>

@@ -1,0 +1,98 @@
+<div class="active-jobs-section">
+  <h3>
+    <!-- <a routerLink="/admin-dashboard" class="back-arrow"><i class="fa-solid fa-arrow-left"></i></a> -->
+    Active Jobs @if (jobs.length > 0) {
+    <span class="active-jobs-count">({{ jobs.length }})</span>
+    }
+  </h3>
+  @if (jobs.length > 0) {
+  <table class="active-jobs-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Car Name</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Areas Affected</th>
+        <th>Work Required</th>
+        <th>Tracking Adjusted</th>
+        <th>New Components</th>
+        <th>Note</th>
+        <th>Image</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (job of jobs; track $index) {
+      <tr>
+        <td>{{ job.customerName }}</td>
+        <td>{{ job.carName }}</td>
+        <td>{{ job.bookingDate }}</td>
+        <td>{{ job.bookingTime }}</td>
+        <td>{{ job.areasAffected }}</td>
+        <td>{{ job.workRequired }}</td>
+        <td>{{ job.trackingAdjusted }}</td>
+        <td>{{ job.newComponents }}</td>
+        <td>{{ job.note }}</td>
+        <td>
+          @if (job.imageUrl) {
+          <img
+            src="{{ job.imageUrl }}"
+            alt="Job Image"
+            style="max-width: 80px; max-height: 80px; border-radius: 6px; cursor: pointer"
+            (click)="openImageModal(job.imageUrl)"
+          />
+          } @else {
+          <span style="color: #aaa; font-size: 12px">No image</span>
+          }
+        </td>
+        <td>
+          <button
+            (click)="updateJobStatus(job.id, 'completed')"
+            title="Mark as Completed"
+            class="action-btn active-complete-btn"
+            style="
+              background: none;
+              border: none;
+              color: #22c55e;
+              font-size: 1.3rem;
+              margin-right: 8px;
+              cursor: pointer;
+            "
+          >
+            <i class="fa fa-check-circle"></i>
+          </button>
+          <button
+            (click)="updateJobStatus(job.id, 'cancelled')"
+            title="Cancel Job"
+            class="action-btn active-cancel-btn"
+            style="
+              background: none;
+              border: none;
+              color: #ef4444;
+              font-size: 1.3rem;
+              cursor: pointer;
+            "
+          >
+            <i class="fa fa-times-circle"></i>
+          </button>
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+  } @if (jobs.length === 0) {
+  <div>No active jobs.</div>
+  } @if (showImageModal) {
+  <div class="image-modal-overlay" (click)="closeImageModal()">
+    <div class="image-modal-content" (click)="$event.stopPropagation()">
+      <img
+        [src]="modalImageUrl"
+        alt="Large Job Image"
+        style="max-width: 90vw; max-height: 90vh; border-radius: 12px; box-shadow: 0 2px 16px #0005"
+      />
+      <span class="close-modal-icon" (click)="closeImageModal()" title="Close Modal">&#10005;</span>
+    </div>
+  </div>
+  }
+</div>

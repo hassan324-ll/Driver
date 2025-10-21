@@ -1,0 +1,65 @@
+<app-header></app-header>
+
+<div class="review-section">
+  <h3>Submit Your Review</h3>
+
+  <form class="review-form" (ngSubmit)="onSubmitReview()">
+    @if (errorMessage) {
+    <div class="error-message">{{ errorMessage }}</div>
+    } @if (successMessage) {
+    <div class="success-message">{{ successMessage }}</div>
+    }
+
+    <!-- Reviewer Name -->
+    <div class="form-group">
+      <label for="reviewerName">Your Name:</label>
+      <div class="input-wrapper">
+        <i class="fas fa-user"></i>
+        <input
+          id="reviewerName"
+          type="text"
+          [(ngModel)]="reviewerName"
+          name="reviewerName"
+          required
+        />
+      </div>
+      @if (errors.reviewerName) {
+      <div class="error-message">{{ errors.reviewerName }}</div>
+      }
+    </div>
+
+    <!-- Rating -->
+    <div class="form-group">
+      <label for="rating">Rating:</label>
+      <div class="input-wrapper">
+        <i class="fas fa-star"></i>
+        <select id="rating" [(ngModel)]="rating" name="rating" required>
+          <option value="">Select rating</option>
+          <option value="5">5 - Excellent</option>
+          <option value="4">4 - Good</option>
+          <option value="3">3 - Average</option>
+          <option value="2">2 - Poor</option>
+          <option value="1">1 - Very Poor</option>
+        </select>
+      </div>
+      @if (errors.rating) {
+      <div class="error-message">{{ errors.rating }}</div>
+      }
+    </div>
+
+    <!-- Comments -->
+    <div class="form-group">
+      <label for="comments">Comments:</label>
+      <div class="input-wrapper">
+        <i class="fas fa-comment-dots"></i>
+        <textarea id="comments" [(ngModel)]="comments" name="comments" rows="4" required></textarea>
+      </div>
+      @if (errors.comments) {
+      <div class="error-message">{{ errors.comments }}</div>
+      }
+    </div>
+
+    <button type="submit" class="submit-btn">Submit Review</button>
+  </form>
+</div>
+<!-- <app-footer></app-footer> -->

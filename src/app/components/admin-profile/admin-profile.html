@@ -1,0 +1,171 @@
+<!-- Profile Section -->
+<div class="profile-section">
+  <div class="profile-card">
+    <div class="profile-main">
+      <img src="./hassan.jpeg" alt="Profile" class="profile-avatar" />
+      <div class="profile-details">
+        <div class="profile-name">{{ profileName }}</div>
+        <div class="profile-role">{{ profileRole }}</div>
+      </div>
+      <div class="profile-actions">
+        <a class="profile-social" [href]="profileSocial.facebook" title="Facebook" target="_blank"
+          ><i class="fab fa-facebook-f"></i
+        ></a>
+        <a class="profile-social" [href]="profileSocial.twitter" title="Twitter" target="_blank"
+          ><i class="fab fa-twitter"></i
+        ></a>
+        <a class="profile-social" [href]="profileSocial.linkedin" title="LinkedIn" target="_blank"
+          ><i class="fab fa-linkedin-in"></i
+        ></a>
+        <a class="profile-social" [href]="profileSocial.instagram" title="Instagram" target="_blank"
+          ><i class="fab fa-instagram"></i
+        ></a>
+        <button class="profile-edit" (click)="openModal('main')">
+          <i class="fa fa-edit"></i> Edit
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Personal Information Section -->
+  <div class="profile-info-card">
+    <div class="profile-info-header">
+      <span>Personal Information</span>
+      <button class="profile-edit" (click)="openModal('personal')">
+        <i class="fa fa-edit"></i> Edit
+      </button>
+    </div>
+    <div class="profile-info-grid">
+      <div class="profile-info-row">
+        <div class="profile-info-label">First Name</div>
+        <div class="profile-info-value">{{ personalInfo.firstName }}</div>
+        <div class="profile-info-label">Last Name</div>
+        <div class="profile-info-value">{{ personalInfo.lastName }}</div>
+      </div>
+      <div class="profile-info-row">
+        <div class="profile-info-label">Email address</div>
+        <div class="profile-info-value">{{ personalInfo.email }}</div>
+        <div class="profile-info-label">Phone</div>
+        <div class="profile-info-value">{{ personalInfo.phone }}</div>
+      </div>
+    </div>
+  </div>
+  <!--  -->
+  <div class="profile-info-card">
+    <div class="profile-info-header">
+      <span>Address</span>
+      <button class="profile-edit" (click)="openModal('address')">
+        <i class="fa fa-edit"></i> Edit
+      </button>
+    </div>
+    <div class="profile-info-grid">
+      <div class="profile-info-row">
+        <div class="profile-info-label">Country</div>
+        <div class="profile-info-value">{{ addressInfo.country }}</div>
+        <div class="profile-info-label">City/State</div>
+        <div class="profile-info-value">{{ addressInfo.cityState }}</div>
+      </div>
+      <div class="profile-info-row">
+        <div class="profile-info-label">Postal Code</div>
+        <div class="profile-info-value">{{ addressInfo.postalCode }}</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Profile Edit Modal -->
+  @if (modalType === 'main') {
+  <div class="profile-modal-backdrop">
+    <div class="profile-modal">
+      <button class="profile-modal-close" (click)="closeModal()">
+        <i class="fa fa-times"></i>
+      </button>
+      <div class="profile-modal-title">Edit Profile</div>
+      <form class="profile-modal-form" (ngSubmit)="saveMain()">
+        <label>Profile Picture</label>
+        <input type="file" (change)="onPictureChange($event)" />
+        <label>Name</label>
+        <input type="text" [(ngModel)]="mainForm.name" name="mainName" />
+        <label>Role</label>
+        <input type="text" [(ngModel)]="mainForm.role" name="mainRole" />
+        <label>Social Links</label>
+        <input
+          type="text"
+          [(ngModel)]="mainForm.facebook"
+          name="facebook"
+          placeholder="Facebook URL"
+        />
+        <input
+          type="text"
+          [(ngModel)]="mainForm.twitter"
+          name="twitter"
+          placeholder="Twitter URL"
+        />
+        <input
+          type="text"
+          [(ngModel)]="mainForm.linkedin"
+          name="linkedin"
+          placeholder="LinkedIn URL"
+        />
+        <input
+          type="text"
+          [(ngModel)]="mainForm.instagram"
+          name="instagram"
+          placeholder="Instagram URL"
+        />
+        <div class="profile-modal-actions">
+          <button type="button" (click)="closeModal()">Cancel</button>
+          <button type="submit">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  }
+  <!-- Personal Info Modal -->
+  @if (modalType === 'personal') {
+  <div class="profile-modal-backdrop">
+    <div class="profile-modal">
+      <button class="profile-modal-close" (click)="closeModal()">
+        <i class="fa fa-times"></i>
+      </button>
+      <div class="profile-modal-title">Edit Personal Information</div>
+      <form class="profile-modal-form" (ngSubmit)="savePersonal()">
+        <label>First Name</label>
+        <input type="text" [(ngModel)]="personalForm.firstName" name="firstName" />
+        <label>Last Name</label>
+        <input type="text" [(ngModel)]="personalForm.lastName" name="lastName" />
+        <label>Email</label>
+        <input type="email" [(ngModel)]="personalForm.email" name="email" />
+        <label>Phone</label>
+        <input type="text" [(ngModel)]="personalForm.phone" name="phone" />
+        <div class="profile-modal-actions">
+          <button type="button" (click)="closeModal()">Cancel</button>
+          <button type="submit">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  }
+  <!-- Address Modal -->
+  @if (modalType === 'address') {
+  <div class="profile-modal-backdrop">
+    <div class="profile-modal">
+      <button class="profile-modal-close" (click)="closeModal()">
+        <i class="fa fa-times"></i>
+      </button>
+      <div class="profile-modal-title">Edit Address</div>
+      <form class="profile-modal-form" (ngSubmit)="saveAddress()">
+        <label>Country</label>
+        <input type="text" [(ngModel)]="addressForm.country" name="country" />
+        <label>City/State</label>
+        <input type="text" [(ngModel)]="addressForm.cityState" name="cityState" />
+        <label>Postal Code</label>
+        <input type="text" [(ngModel)]="addressForm.postalCode" name="postalCode" />
+        <div class="profile-modal-actions">
+          <button type="button" (click)="closeModal()">Cancel</button>
+          <button type="submit">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  }
+</div>

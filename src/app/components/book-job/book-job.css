@@ -1,0 +1,346 @@
+.book-job-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #f8fafc;
+  padding: 3rem 1rem;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+  margin-top: 50px;
+  width: 100vw;
+  box-sizing: border-box;
+}
+
+.title {
+  color: #0e8cc3;
+  font-size: 2.1rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  width: 100%;
+}
+
+.job-form {
+  width: 100%;
+  max-width: 480px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+  padding: 2.5rem 2rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 1.2rem;
+  width: 100%;
+}
+
+.form-group i {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #0e8cc3;
+  font-size: 1rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.9rem 1rem 0.9rem 2.6rem;
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.2s ease;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.form-group textarea {
+  resize: none;
+  height: 100px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #0e8cc3;
+  box-shadow: 0 0 5px rgba(14, 140, 195, 0.25);
+}
+
+/* Select styling */
+.select-group select {
+  appearance: none;
+  -webkit-appearance: none;
+  background: #fff
+    url("data:image/svg+xml;utf8,<svg fill='gray' height='14' width='14' xmlns='http://www.w3.org/2000/svg'><path d='M5 6l3 3 3-3z'/></svg>")
+    no-repeat right 1rem center;
+  background-size: 10px;
+}
+
+/* Upload field */
+.file-upload input[type='file'] {
+  padding-left: 2.5rem;
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+}
+
+/* Car diagram */
+.car-diagram {
+  text-align: center;
+  margin: 1.5rem 0;
+  width: 100%;
+}
+
+.car-diagram img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  height: auto;
+}
+
+/* Button */
+.submit-btn {
+  width: 100%;
+  background: #0e8cc3;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.9rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.submit-btn:hover {
+  background: #0c77a7;
+  box-shadow: 0 3px 8px rgba(14, 140, 195, 0.3);
+}
+
+/* Messages */
+.error-message {
+  color: #e74c3c;
+  font-size: 0.9rem;
+  margin-top: 0.2rem;
+}
+
+.success-message {
+  color: #2ecc71;
+  margin-top: 1rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Mobile First */
+@media (max-width: 480px) {
+  .book-job-container {
+    padding: 10px 2vw;
+    margin-top: 30px;
+  }
+  .title {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    margin-top: 60px;
+  }
+  .job-form {
+    padding: 1.2rem 0.5rem;
+    max-width: 99vw;
+    gap: 0.7rem;
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    font-size: 0.95rem;
+    padding-left: 2.1rem;
+  }
+  .submit-btn {
+    font-size: 0.95rem;
+    padding: 0.7rem;
+  }
+  .car-diagram img {
+    max-width: 98vw;
+    padding: 4px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .book-job-container {
+    padding: 18px 4vw;
+    margin-top: 40px;
+  }
+  .title {
+    font-size: 1.5rem;
+  }
+  .job-form {
+    padding: 1.5rem 1rem;
+    max-width: 90vw;
+    gap: 1rem;
+  }
+  .car-diagram img {
+    max-width: 90vw;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .book-job-container {
+    padding: 2.5rem 6vw;
+    margin-top: 50px;
+  }
+  .title {
+    font-size: 1.7rem;
+  }
+  .job-form {
+    padding: 2rem 1.5rem;
+    max-width: 80vw;
+    gap: 1.1rem;
+  }
+  .car-diagram img {
+    max-width: 80vw;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .book-job-container {
+    padding: 3rem 10vw;
+    margin-top: 60px;
+  }
+  .title {
+    font-size: 2rem;
+  }
+  .job-form {
+    padding: 2.5rem 2rem;
+    max-width: 600px;
+    gap: 1.2rem;
+  }
+  .car-diagram img {
+    max-width: 400px;
+  }
+}
+
+@media (min-width: 1441px) {
+  .book-job-container {
+    padding: 3rem 18vw;
+    margin-top: 70px;
+  }
+  .title {
+    font-size: 2.3rem;
+  }
+  .job-form {
+    padding: 3rem 2.5rem;
+    max-width: 700px;
+    gap: 1.4rem;
+  }
+  .car-diagram img {
+    max-width: 500px;
+  }
+}
+
+/* Footer */
+.footer {
+  width: 100vw;
+  background-color: #0e8cc3;
+  color: #fff;
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: static;
+  left: 0;
+  bottom: 0;
+  box-sizing: border-box;
+  font-size: 0.7rem;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 0.6rem;
+  font-family: Arial, sans-serif;
+}
+
+.social-icons a {
+  color: #fff;
+  margin-left: 10px;
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .book-job-container {
+    max-width: 98vw;
+    margin: 20px 1vw;
+    padding: 10px 2vw;
+  }
+  .title {
+    font-size: 1.7rem;
+    margin-bottom: 12px;
+    margin-top: 80px;
+  }
+  .job-form {
+    padding: 12px 4px;
+    gap: 10px;
+  }
+  .form-group label,
+  .search-field label {
+    font-size: 1rem;
+  }
+  input,
+  select,
+  textarea {
+    font-size: 1rem;
+    padding: 8px 6px;
+  }
+  .car-diagram img {
+    max-width: 98vw;
+    padding: 6px;
+  }
+  .submit-btn,
+  .search-btn {
+    font-size: 1rem;
+    padding: 10px 8px;
+  }
+  .footer {
+    flex-direction: column;
+    font-size: 0.8rem;
+    padding: 8px 0;
+    width: 100vw;
+    text-align: center;
+  }
+  .footer p {
+    font-size: 0.7rem;
+  }
+  .success-message {
+    max-width: 95vw;
+    font-size: 1rem;
+    padding: 8px 6px;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .book-job-container {
+    max-width: 80vw;
+    margin: 30px auto;
+    padding: 18px 4vw;
+  }
+  .title {
+    font-size: 2.2rem;
+  }
+  .car-diagram img {
+    max-width: 80vw;
+  }
+  .footer {
+    font-size: 0.8rem;
+    padding: 10px 0;
+  }
+  .success-message {
+    max-width: 70vw;
+  }
+}

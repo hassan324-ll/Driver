@@ -1,0 +1,117 @@
+/* Feedbacks / Customer Reviews Section */
+.feedbacks-section {
+  background-color: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  /* margin-top: 25px; */
+}
+
+/* Header */
+.feedbacks-section h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #92400e; /* Warm gold-brown tone */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+/* Table styling */
+.feedbacks-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background-color: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+.feedbacks-table thead {
+  background-color: #fffbeb; /* Light gold header background */
+}
+
+.feedbacks-table th {
+  text-align: left;
+  padding: 14px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #78350f; /* Dark golden text */
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.feedbacks-table td {
+  padding: 12px 16px;
+  font-size: 14px;
+  color: #111827;
+  border-bottom: 1px solid #f3f4f6;
+  vertical-align: middle;
+  line-height: 1.5;
+}
+
+/* Alternating row colors */
+.feedbacks-table tbody tr:nth-child(even) {
+  background-color: #f9fafb;
+}
+
+/* Hover effect */
+.feedbacks-table tbody tr:hover {
+  background-color: #fffbeb;
+  transition: background-color 0.25s ease;
+}
+
+/* Rating color */
+.feedbacks-table td:nth-child(2) {
+  color: #ca8a04; /* Gold tone for rating numbers */
+  font-weight: 600;
+}
+
+/* Empty state */
+.feedbacks-section > div {
+  color: #6b7280;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .feedbacks-table thead {
+    display: none;
+  }
+
+  .feedbacks-table,
+  .feedbacks-table tbody,
+  .feedbacks-table tr,
+  .feedbacks-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .feedbacks-table tr {
+    margin-bottom: 15px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  }
+
+  .feedbacks-table td {
+    padding: 10px 15px;
+    text-align: right;
+    position: relative;
+  }
+
+  .feedbacks-table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 15px;
+    font-weight: 600;
+    color: #78350f;
+    text-transform: capitalize;
+  }
+}
