@@ -1,0 +1,30 @@
+.verify-email-container {
+  max-width: 400px;
+  margin: 60px auto;
+  padding: 32px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+.verify-email-container h2 {
+  margin-bottom: 16px;
+}
+.verify-email-container button {
+  margin-top: 24px;
+  padding: 10px 24px;
+  font-size: 16px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.verify-email-container button:disabled {
+  background: #aaa;
+  cursor: not-allowed;
+}
+.error-message {
+  color: #d00;
+  margin-top: 16px;
+}

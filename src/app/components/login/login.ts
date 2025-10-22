@@ -36,6 +36,13 @@ export class Login {
       const auth = getAuth();
       const user = auth.currentUser;
 
+      // Block login if email is not verified
+      if (user && !user.emailVerified) {
+        this.error =
+          'Please verify your email before logging in. Check your inbox for the activation link.';
+        return;
+      }
+
       // If user is authenticated, check their role in Firestore
       if (user) {
         const db = getFirestore(this.firebase.app);

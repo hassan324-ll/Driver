@@ -30,16 +30,14 @@ export class Signup {
       return;
     }
     try {
-      await this.firebase.signupUser({
+      const userCredential = await this.firebase.signupUser({
         name: this.customerName,
         email: this.email,
         phone: this.phoneNumber,
         password: this.password,
       });
-      this.success = 'Account created successfully!';
-      setTimeout(() => {
-        this.router.navigate(['/account-setup']);
-      }, 1200);
+      await this.firebase.sendEmailVerification();
+      this.router.navigate(['/verify-email']);
     } catch (err: any) {
       console.error('Signup error:', err);
       if (err.code) {

@@ -20,6 +20,8 @@ import { AdminLayout } from './components/admin-layout/admin-layout';
 import { AdminProfile } from './components/admin-profile/admin-profile';
 import { UserProfile } from './components/user-profile/user-profile';
 import { CustomerSupport } from './components/customer-support/customer-support';
+import { VerifyEmail } from './components/verify-email/verify-email';
+
 export const routes: Routes = [
   {
     path: '',
@@ -63,6 +65,11 @@ export const routes: Routes = [
   //   component: AdminDashboard,
   // },
   {
+    path: 'verify-email',
+    loadComponent: () =>
+      import('./components/verify-email/verify-email').then((m) => m.VerifyEmail),
+  },
+  {
     path: 'review',
     component: Review,
   },
@@ -86,7 +93,6 @@ export const routes: Routes = [
     path: 'reports',
     component: ReportsComponent,
   },
-
   {
     path: 'admin-layout',
     component: AdminLayout,

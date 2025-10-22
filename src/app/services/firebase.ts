@@ -19,6 +19,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   UserCredential,
+  sendEmailVerification as firebaseSendEmailVerification,
 } from 'firebase/auth';
 import { getFirestore, setDoc, doc } from 'firebase/firestore';
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
@@ -30,6 +31,15 @@ export class Firebase {
 
   constructor() {
     this.app = initializeApp(firebaseConfig);
+  }
+
+  // Send email verification to user
+  sendEmailVerification(): Promise<void> {
+    const auth = getAuth(this.app);
+    if (auth.currentUser) {
+      return firebaseSendEmailVerification(auth.currentUser);
+    }
+    return Promise.resolve();
   }
 
   // Save job booking data to Firestore
