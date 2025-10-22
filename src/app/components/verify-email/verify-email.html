@@ -2,5 +2,7 @@
   <h2>Email Verification</h2>
   <p>{{ message }}</p>
   <button (click)="checkVerification()" [disabled]="loading">I've verified, continue</button>
-  <div *ngIf="error" class="error-message">{{ error }}</div>
+  @if (error) {
+  <div class="error-message">{{ error }}</div>
+  }
 </div>
