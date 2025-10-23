@@ -21,6 +21,7 @@ import { AdminProfile } from './components/admin-profile/admin-profile';
 import { UserProfile } from './components/user-profile/user-profile';
 import { CustomerSupport } from './components/customer-support/customer-support';
 import { VerifyEmail } from './components/verify-email/verify-email';
+import { NotFoundRedirect } from './components/not-found-redirect/not-found-redirect';
 
 export const routes: Routes = [
   {
@@ -134,5 +135,10 @@ export const routes: Routes = [
   {
     path: 'customer-support',
     component: CustomerSupport,
+  },
+  // wildcard - must be last
+  {
+    path: '**',
+    component: NotFoundRedirect,
   },
 ];

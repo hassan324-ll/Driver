@@ -1,0 +1,26 @@
+<div class="notfound-root">
+  <div class="notfound-card">
+    <div class="emoji" aria-hidden="true">😕</div>
+    <h1>Page not found</h1>
+    <p class="muted">We couldn't find the page you're looking for.</p>
+    <div class="actions">
+      <button class="btn primary" (click)="goHome()">Go to Home</button>
+      <button class="btn" (click)="goLogin()">Go to Login</button>
+    </div>
+    <div class="hint">If you typed the URL directly, please check it and try again.</div>
+  </div>
+</div>
+
+<style>
+.notfound-root{display:flex;align-items:center;justify-content:center;min-height:80vh;padding:24px;background:linear-gradient(180deg,#0f172a 0%,#071029 100%);color:#e6eef8}
+.notfound-card{max-width:520px;width:100%;text-align:center;padding:36px;border-radius:12px;background:rgba(255,255,255,0.03);box-shadow:0 6px 18px rgba(2,6,23,0.6)}
+.emoji{font-size:56px;margin-bottom:8px}
+h1{font-size:28px;margin:4px 0 8px}
+.muted{color:rgba(230,238,248,0.7);margin-bottom:18px}
+.actions{display:flex;gap:12px;justify-content:center;margin-bottom:10px}
+.btn{padding:10px 16px;border-radius:8px;border:1px solid rgba(255,255,255,0.08);background:transparent;color:#e6eef8;cursor:pointer}
+.btn.primary{background:#0ea5e9;border-color:#0ea5e9;color:#04202a}
+.btn:hover{opacity:0.95}
+.hint{color:rgba(230,238,248,0.55);font-size:13px;margin-top:6px}
+@media (max-width:480px){.notfound-card{padding:20px}.emoji{font-size:44px}h1{font-size:22px}}
+</style>
