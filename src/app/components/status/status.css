@@ -24,6 +24,38 @@
   padding-bottom: 6px;
 }
 
+.status-loading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 24px 12px;
+}
+
+.spinner {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 4px solid rgba(0, 0, 0, 0.08);
+  border-top-color: #0e8cc3;
+  animation: spin 1s linear infinite;
+}
+
+.loading-text {
+  font-size: 14px;
+  color: #444;
+}
+
+.no-jobs {
+  padding: 18px 12px;
+  color: #666;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 /* TABLE */
 
 .job-status-table {

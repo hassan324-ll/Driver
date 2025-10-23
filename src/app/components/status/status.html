@@ -1,7 +1,12 @@
 <app-header></app-header>
 <div class="status-section">
   <h3>Job Status</h3>
-  @if (userJobs.length > 0) {
+  @if (loading) {
+  <div class="status-loading">
+    <div class="spinner" aria-hidden="true"></div>
+    <div class="loading-text">Loading jobs...</div>
+  </div>
+  } @else if (userJobs.length > 0) {
   <table class="job-status-table">
     <thead>
       <tr>
@@ -52,8 +57,8 @@
       }
     </tbody>
   </table>
-  } @if (userJobs.length === 0) {
-  <div>No jobs found..</div>
+  } @if (!loading && userJobs.length === 0) {
+  <div class="no-jobs">No jobs found..</div>
   }
 </div>
 

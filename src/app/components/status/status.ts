@@ -14,6 +14,7 @@ import { Header } from '../header/header';
 })
 export class Status {
   userJobs: any[] = [];
+  loading = false;
 
   /**
    * Constructor: Injects Firebase service and loads jobs for the current user.
@@ -45,14 +46,24 @@ export class Status {
   async loadUserJobs() {
     const auth = getAuth();
     auth.onAuthStateChanged(async (user) => {
-      if (user) {
-        const db = getFirestore(this.firebase.app);
-        const { getDocs, collection, query, where } = await import('firebase/firestore');
-        const jobsQuery = query(collection(db, 'jobs'), where('userId', '==', user.uid));
-        const jobsSnap = await getDocs(jobsQuery);
-        this.userJobs = jobsSnap.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-      } else {
+      // When auth state changes we show a loading spinner while we fetch jobs
+      this.loading = true;
+      try {
+        if (user) {
+          const db = getFirestore(this.firebase.app);
+          const { getDocs, collection, query, where } = await import('firebase/firestore');
+          const jobsQuery = query(collection(db, 'jobs'), where('userId', '==', user.uid));
+          const jobsSnap = await getDocs(jobsQuery);
+          this.userJobs = jobsSnap.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+        } else {
+          this.userJobs = [];
+        }
+      } catch (err) {
+        console.error('Failed to load user jobs', err);
         this.userJobs = [];
+      } finally {
+        // keep spinner visible for at least a short moment to better UX
+        setTimeout(() => (this.loading = false), 300);
       }
     });
   }
