@@ -71,6 +71,42 @@
   margin-top: 10px;
 }
 
+/* Loading state */
+.status-loading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  padding: 18px 12px;
+}
+
+.spinner {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 3px solid rgba(0, 0, 0, 0.08);
+  border-top-color: #15803d;
+  animation: spin 1s linear infinite;
+}
+
+.loading-text {
+  color: #444;
+  font-size: 14px;
+}
+
+.no-jobs {
+  color: #6b7280;
+  font-size: 14px;
+  text-align: center;
+  padding: 18px 12px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 /* Responsive layout */
 @media (max-width: 900px) {
   .completed-jobs-table thead {

@@ -3,7 +3,12 @@
     <!-- <a routerLink="/admin-dashboard" class="back-arrow"><i class="fa-solid fa-arrow-left"></i></a> -->
     Completed Jobs
   </h3>
-  @if (jobs.length > 0) {
+  @if (loading) {
+  <div class="status-loading">
+    <div class="spinner" aria-hidden="true"></div>
+    <div class="loading-text">Loading completed jobs...</div>
+  </div>
+  } @else if (jobs.length > 0) {
   <table class="completed-jobs-table">
     <thead>
       <tr>
@@ -34,7 +39,7 @@
       }
     </tbody>
   </table>
-  } @if (jobs.length === 0) {
-  <div>No completed jobs.</div>
+  } @if (!loading && jobs.length === 0) {
+  <div class="no-jobs">No completed jobs.</div>
   }
 </div>
