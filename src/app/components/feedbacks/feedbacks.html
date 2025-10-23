@@ -3,7 +3,12 @@
     <!-- <a routerLink="/admin-dashboard" class="back-arrow"><i class="fa-solid fa-arrow-left"></i></a> -->
     Customer Reviews
   </h3>
-  @if (reviews.length > 0) {
+  @if (loading) {
+  <div class="status-loading">
+    <div class="spinner" aria-hidden="true"></div>
+    <div class="loading-text">Loading reviews...</div>
+  </div>
+  } @else if (reviews.length > 0) {
   <table class="feedbacks-table">
     <thead>
       <tr>
@@ -24,7 +29,7 @@
       }
     </tbody>
   </table>
-  } @if (reviews.length === 0) {
-  <div>No reviews yet.</div>
+  } @if (!loading && reviews.length === 0) {
+  <div class="no-reviews">No reviews yet.</div>
   }
 </div>

@@ -12,6 +12,7 @@ import { RouterLink } from '@angular/router';
 })
 export class Feedbacks {
   reviews: any[] = [];
+  loading = false;
 
   /**
    * Constructor: Injects Firebase service and loads reviews on initialization.
@@ -24,9 +25,17 @@ export class Feedbacks {
    * Loads all reviews from Firestore and updates the reviews array.
    */
   async loadReviews() {
-    const db = getFirestore(this.firebase.app);
-    const { getDocs, collection } = await import('firebase/firestore');
-    const reviewsSnap = await getDocs(collection(db, 'reviews'));
-    this.reviews = reviewsSnap.docs.map((doc) => doc.data());
+    this.loading = true;
+    try {
+      const db = getFirestore(this.firebase.app);
+      const { getDocs, collection } = await import('firebase/firestore');
+      const reviewsSnap = await getDocs(collection(db, 'reviews'));
+      this.reviews = reviewsSnap.docs.map((doc) => doc.data());
+    } catch (err) {
+      console.error('Failed to load reviews', err);
+      this.reviews = [];
+    } finally {
+      setTimeout(() => (this.loading = false), 250);
+    }
   }
 }

@@ -71,6 +71,46 @@
   margin-top: 10px;
 }
 
+/* Loading state */
+.status-loading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: center;
+  padding: 24px 16px;
+  background-color: #fef2f2;
+  border-radius: 8px;
+  margin: 12px 0;
+}
+
+.spinner {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 3px solid rgba(185, 28, 28, 0.1);
+  border-top-color: #b91c1c;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+}
+
+.loading-text {
+  color: #444;
+  font-size: 14px;
+}
+
+.no-jobs {
+  color: #6b7280;
+  font-size: 14px;
+  text-align: center;
+  padding: 18px 12px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 /* Responsive Design */
 @media (max-width: 900px) {
   .cancelled-jobs-table thead {

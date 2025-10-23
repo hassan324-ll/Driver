@@ -12,6 +12,7 @@ import { RouterLink } from '@angular/router';
 })
 export class ActiveJobs {
   jobs: any[] = [];
+  loading = false;
 
   // Modal state for image preview
   showImageModal: boolean = false;
@@ -23,11 +24,19 @@ export class ActiveJobs {
 
   //load active jobs from firestore and show it in template
   async loadActiveJobs() {
-    const db = getFirestore(this.firebase.app);
-    const { getDocs, collection, query, where } = await import('firebase/firestore');
-    const jobsQuery = query(collection(db, 'jobs'), where('status', '==', 'pending'));
-    const jobsSnap = await getDocs(jobsQuery);
-    this.jobs = jobsSnap.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+    this.loading = true;
+    try {
+      const db = getFirestore(this.firebase.app);
+      const { getDocs, collection, query, where } = await import('firebase/firestore');
+      const jobsQuery = query(collection(db, 'jobs'), where('status', '==', 'pending'));
+      const jobsSnap = await getDocs(jobsQuery);
+      this.jobs = jobsSnap.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+    } catch (err) {
+      console.error('Failed to load active jobs', err);
+      this.jobs = [];
+    } finally {
+      setTimeout(() => (this.loading = false), 250);
+    }
   }
 
   //update job status to completed or cancelled

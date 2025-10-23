@@ -5,7 +5,12 @@
     <span class="active-jobs-count">({{ jobs.length }})</span>
     }
   </h3>
-  @if (jobs.length > 0) {
+  @if (loading) {
+  <div class="status-loading">
+    <div class="spinner" aria-hidden="true"></div>
+    <div class="loading-text">Loading active jobs...</div>
+  </div>
+  } @else if (jobs.length > 0) {
   <table class="active-jobs-table">
     <thead>
       <tr>
@@ -81,8 +86,8 @@
       }
     </tbody>
   </table>
-  } @if (jobs.length === 0) {
-  <div>No active jobs.</div>
+  } @if (!loading && jobs.length === 0) {
+  <div class="no-jobs">No active jobs.</div>
   } @if (showImageModal) {
   <div class="image-modal-overlay" (click)="closeImageModal()">
     <div class="image-modal-content" (click)="$event.stopPropagation()">

@@ -12,6 +12,7 @@ import { RouterLink } from '@angular/router';
 })
 export class CompletedJobs {
   jobs: any[] = [];
+  loading = false;
 
   /**
    * Constructor: Injects Firebase service and loads completed jobs on initialization.
@@ -24,10 +25,18 @@ export class CompletedJobs {
    * Loads all jobs with status 'completed' from Firestore and updates the jobs array.
    */
   async loadCompletedJobs() {
-    const db = getFirestore(this.firebase.app);
-    const { getDocs, collection, query, where } = await import('firebase/firestore');
-    const jobsQuery = query(collection(db, 'jobs'), where('status', '==', 'completed'));
-    const jobsSnap = await getDocs(jobsQuery);
-    this.jobs = jobsSnap.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+    this.loading = true;
+    try {
+      const db = getFirestore(this.firebase.app);
+      const { getDocs, collection, query, where } = await import('firebase/firestore');
+      const jobsQuery = query(collection(db, 'jobs'), where('status', '==', 'completed'));
+      const jobsSnap = await getDocs(jobsQuery);
+      this.jobs = jobsSnap.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+    } catch (err) {
+      console.error('Failed to load completed jobs', err);
+      this.jobs = [];
+    } finally {
+      setTimeout(() => (this.loading = false), 250);
+    }
   }
 }
